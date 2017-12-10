@@ -1,0 +1,7 @@
+com\niit\configuration\DBConfiguration.class
+com\niit\services\ProductServiceImpl.class
+com\niit\dao\ProductDao.class
+com\niit\product\Product.class
+com\niit\dao\ProductDaoImpl.class
+com\niit\services\ProductService.class
+com\niit\project1_backend\App.class
