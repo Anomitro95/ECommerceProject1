@@ -85,15 +85,15 @@
 			
 			
 			<security:authorize access="hasRole('ROLE_USER')">
-	        <li class="active"><a href="<c:url value='/cart/getcart'></c:url>">cart</a></li>
+	        <li class="active"><a href="<c:url value='/cart/getcart'></c:url>">Cart</a></li>
 	        </security:authorize>
 			</ul>
 			
 			
 			<ul class="nav navbar-nav navbar-right">
 			<c:if test="${pageContext.request.userPrincipal.name==null }">
-			<li><a href="<c:url value='/login'></c:url>">Sign In</a></li>
-			<li><a href='<c:url value='/all/registrationform'></c:url>'><span class="hover-item">Sign Up</span></a></li>
+			<li class ="active"><a href="<c:url value='/login'></c:url>">Sign In</a></li>
+			<li class= "active"><a href='<c:url value='/all/registrationform'></c:url>'><span class="hover-item">Sign Up</span></a></li>
 			</c:if>
 			<c:if test="${pageContext.request.userPrincipal.name!=null }">
 			<li><a href="">Welcome ${pageContext.request.userPrincipal.name}</a></li>
