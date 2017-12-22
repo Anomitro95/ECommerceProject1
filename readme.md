@@ -1,6 +1,6 @@
 Here is my first Ecommerce Project.
 
-This project has been built on the basic principles of the 3 tier architecture abd Eclipse Neon was the IDE used. 
+This project has been built on the basic principles of the 3 tier architecture and Eclipse Neon was the IDE used. 
 
 H2 database has been used in the backend, Spring MVC and Hibernate and Maven along with JSP has been used to build the
 business logic layer or the middle(application) layer with Apache Tomcat 9.0 as the server and finally a combination of 
