@@ -19,7 +19,7 @@
 				   </tr>	
 					<tr>
 						<td>Enter Password </td>
-						<td><input type="text"	name="j_password"></td>
+						<td><input type="password"	name="j_password"></td>
 					</tr>
 					<tr>
 					<td><input type ="submit" value= "submit"></td>

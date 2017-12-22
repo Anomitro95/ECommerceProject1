@@ -11,12 +11,12 @@
 <div >
 <div >
 
-<a href="<c:url value='/cart/clearcart/${cart.id}'></c:url>" class="btn btn-danger" pull-left  >
+<a onclick="return confirm('Are you sure?')" href="<c:url value='/cart/clearcart/${cart.id}'></c:url>" class="btn btn-danger" pull-left  >
 <span class="glyphicon glypicon-remove-sign"></span>
 Clear Cart
 </a>
 
-<a href="<c:url value='/cart/checkout/${cart.id }'></c:url>" class="btn btn-success pull-right">
+<a onclick="return checkProducts(${cart.cartItems})" href="<c:url value='/cart/checkout/${cart.id }'></c:url>" class="btn btn-success pull-right">
 <span class="glyphicon glypicon-shopping-cart"></span> Check Out  </a>
 <table class="table table-striped">
 <thead>
@@ -31,7 +31,7 @@ Clear Cart
 <td>${cartItem.quantity }</td>
 <td>${cartItem.totalPrice }</td>
 
-<td><a href="<c:url value='/cart/deletecartitem/${cartItem.id }'></c:url>" class="label label-danger" pull-left>
+<td><a onclick="return confirm('Are you sure?')" href="<c:url value='/cart/deletecartitem/${cartItem.id }'></c:url>" class="label label-danger" pull-left>
 
 <span class="glyphicon glypicon-remove" ></span>Remove
 </a></td>
@@ -47,4 +47,19 @@ Total Price : ${grandTotal }
 
 </div>
 </body>
+<script>
+	function checkProducts(cartItems){
+		
+		console.log(cartItems);
+		console.log(cartItems.length);
+		if(cartItems.length==0)
+		{
+			alert("Please add products!");
+			return false;
+		}
+		else 
+		return true;
+		
+	}
+</script>
 </html>

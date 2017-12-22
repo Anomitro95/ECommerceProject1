@@ -46,7 +46,7 @@
 						<td>
 						  <a href="${viewUrl }"><span class="glyphicon glyphicon-info-sign"></span></a>
 						  	<security:authorize access="hasRole('ROLE_ADMIN')">
-						  <a href="${deleteUrl }"><span class="glyphicon glyphicon-trash"></span></a>
+						  <a onclick="return confirm('Are you sure?')" href="${deleteUrl }"><span class="glyphicon glyphicon-trash"></span></a>
 						  <a href="${editUrl }"><span class="glyphicon glyphicon-pencil"></span></a>
 						  </security:authorize>
 						</td>

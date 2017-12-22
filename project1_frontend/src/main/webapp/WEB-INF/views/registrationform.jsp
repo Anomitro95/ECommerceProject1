@@ -9,7 +9,7 @@
 </head>
 <body>
 <c:url value='/all/registercustomer' var="url"></c:url>
-<form:form action="${url }" modelAttribute="customer">
+<form:form action="${url }" modelAttribute="customer" onkeyup="phoneNoValidate()">
 <div class="boxed" style="border:1px solid">
 Enter Customer Details
 <div class="form-group">
@@ -33,7 +33,7 @@ Enter Customer Details
 
 <div class="form-group">
 <form:label path="phonenumber">PhoneNumber</form:label>
-<form:input path="phonenumber"  class="form-control"></form:input>
+<form:input path="phonenumber"  class="form-control" id="phoneNo" type = "number"></form:input>
 <form:errors path="phonenumber" cssStyle="color:red"></form:errors>
 </div>
 </div>
@@ -121,5 +121,14 @@ Enter Shipping Address
 <input type="submit" value="Register">
 </form:form>
 </body>
+<script>
+	function phoneNoValidate(){
+		var phoneNo= document.getElementById("phoneNo").value;
+		if(phoneNo==="0000000000"){
+			alert("Enter valid phone number");
+			document.getElementById("phoneNo").value="";
+		}
+	}
+</script>
 </html>
 

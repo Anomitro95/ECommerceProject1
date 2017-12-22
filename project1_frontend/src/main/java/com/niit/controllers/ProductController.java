@@ -24,6 +24,8 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+
+
 import com.niit.product.Category;
 import com.niit.product.Product;
 import com.niit.services.ProductService;
@@ -71,15 +73,22 @@ public ModelAndView getAllProducts(){
 		}
 		//SELECT * from Category
 		List<Category> categoriesList=productService.getAllCategories();
+		
+
 		model.addAttribute("categories",categoriesList);
+		model.addAttribute("getAllProducts",  productService.getAllProducts() );
+		model.addAttribute("totalProducts", productService.getAllProducts().size());
 		return "productform";
 	}
 	@RequestMapping(value="/admin/saveorupdateproduct")
     public String saveorUpdateProduct(HttpServletRequest request,@Valid @ModelAttribute(name="product")  Product product,BindingResult result,Model model) {//3
 		if(result.hasErrors()){//constraint violation
-			List<Category> categories=productService.getAllCategories();
+						List<Category> categories=productService.getAllCategories();
+						
 			model.addAttribute("categories",categories);
-			return "productform";
+			model.addAttribute("getAllProducts",  productService.getAllProducts());
+
+						return "productform";
 		}
 		System.out.println(product.getProductname());
 		

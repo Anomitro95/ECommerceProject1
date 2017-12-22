@@ -18,11 +18,12 @@
 <b>Product Description:</b>${product.productDescription }<br>
 <b>Price:</b>${product.price }<br>
 <b>Quantity:</b>${product.quantity }<br>
+
 <b>Category </b>${product.category.categoryname }<br>
 
 <security:authorize access="hasRole('ROLE_USER')">
-<b>Enter Quantity</b><input type="text" name="quantity">
-<button type="submit"  value='Add To Cart'  class="btn btn-info btn-lg glyphicon" >
+<b>Enter Quantity</b><input type="text" name="quantity" id="quantity">
+<button type="submit"  value='Add To Cart' onclick="return checkQuantity(${product.quantity})" class="btn btn-info btn-lg glyphicon" >
 <span class="glyphicon-shopping-cart"></span>Add to Cart 
 </button>
 
@@ -31,4 +32,21 @@
 </pre>
 </form>
 </body>
+<script>
+
+	function checkQuantity(stockQuantity)
+	{
+		var prodQuantity = document.getElementById("quantity").value;
+	
+		console.log(stockQuantity);
+		console.log(prodQuantity);
+		if(stockQuantity>prodQuantity)
+			return true;
+		else{
+			alert("Product limit exceeded !");
+			return false;
+	}
+		}
+
+</script>
 </html> 

@@ -17,13 +17,19 @@
 
 <div class="form-group">
 <form:label path="productname">Enter Product Name:</form:label>
-<form:input path="productname" class="form-control"/>
+<c:forEach items="${getAllProducts }" var="product" varStatus="index"><!--  product is an object of type Product having all the product objects -->
+<input type="hidden" value="${product.productname }" id="${index.index}">
+</c:forEach>
+<input type="hidden" value=	"${totalProducts }" id="totalProducts">
+<form:input path="productname" id="productname" onfocusout="checkUniqueProduct( )" class="form-control"/>
+
+
 <form:errors path="productname" cssStyle="color:red"></form:errors>
 </div>
 
 <div class="form-group">
 <form:label path="quantity">Enter Quantity</form:label>
-<form:input path="quantity" class="form-control"/>
+<form:input path="quantity" class="form-control" type="number" id="quantity" onkeyup="checkPositive()"/>
 </div>
 
 <div class="form-group">
@@ -68,6 +74,28 @@
 </div>
 
 </body>
+<script>
+function checkPositive(){
+	var quantity = document.getElementById("quantity").value;
+	console.log(quantity);
+	if(quantity<0){
+		alert("Please enter a positive value");
+		document.getElementById("quantity").value=0;
+	}
+} 
+function checkUniqueProduct(){
+	var totalProducts = document.getElementById("totalProducts").value;
+	var productname = document.getElementById("productname").value;
+	for (i = 0; i < totalProducts; i++) { 
+	    if(productname===document.getElementById(i.toString()).value){
+	    	alert("Product already exists !");
+	    	document.getElementById("productname").value="";
+	    }
+	}
+
+}
+
+</script>
 </html>
 
 
